@@ -19,6 +19,7 @@ void quick_sort(int *array, size_t size)
 * @array: array
 * @low: lowest index
 * @high: highest index, pivot
+* @size: size
 */
 void qs_recursion(int *array, int low, int high, size_t size)
 {
