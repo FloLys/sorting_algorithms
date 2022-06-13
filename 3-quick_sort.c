@@ -9,16 +9,51 @@
 */
 void quick_sort(int *array, size_t size)
 {
-	/*example O(nlog(n)) quiz*/
-    int i;
-    int j;
+	if (!array || !size)
+		return;
+	qs_recursion(array, 0, size - 1);
+	print_array(array, size);
+}
+/**
+* qs_recursion - lomuto partitions the array between low and high indexes
+* @array: array
+* @low: lowest index
+* @high: highest index, pivot
+*/
+void qs_recursion(int *array, int low, int high)
+{
+	int pivot = array[high];
+	int j, i = low;
 
-    for (i = 0; i < n; i++)
-    {
-        for (j = 1; j < n; j = j * 2)
-        {
-            printf("[%d] [%d]\n", i, j);
-        }
-    }
+	if (low < high)
+	{
+		for (j = low; j < high; j++)
+		{
+			if (array[j] <= pivot)
+			{
+				swap(&array[i], &array[j]);
+				i++;
+			}
+		}
+		swap(&array[i], &array[high]);
+		print_array(array, high);
 
+		qs_recursion(array, low, i - 1);
+		qs_recursion(array, i + 1, high);
+	}
+	else
+		return;
+}
+/**
+* swap - swaps elements
+* @x: x
+* @y: y
+*/
+void swap(int *x, int *y)
+{
+	int swap;
+
+	swap = *x;
+	*x = *y;
+	*y = swap;
 }
