@@ -22,6 +22,6 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void swap(int *x, int *y);
-void qs_recursion(int *array, int low, int high);
+void qs_recursion(int *array, int low, int high, size_t size);
 
 #endif
